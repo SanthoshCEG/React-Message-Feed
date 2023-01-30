@@ -1,0 +1,296 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+@mixin resize {
+  width: 60px;
+  border-radius: 60%;
+}
+@mixin card {
+  display: flex;
+  border: solid 1px none;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px 10px 15px;
+  flex-direction: column;
+  width: 70%;
+  margin-top: 20px;
+}
+@mixin btn{
+    padding: 7px 15px;
+    margin-right: 10px;
+    border-radius: 4px;;
+}
+@mixin btn-red{
+    border: solid 1px white;
+    background-color: rgb(205, 60, 60);
+    color: white;
+}
+
+@mixin btn-green {
+    border: solid 1px white;
+    background-color: rgb(94, 143, 94);
+    color: white;
+}
+.headline-two,
+.p-mar {
+  margin: 0px;
+}
+.feed-content {
+  // background-color: #d4d4d4;
+  position: absolute;
+  top: 64.15px;
+  left: 350px;
+  padding: 30px 0px 10px 200px;
+  overflow-y: scroll;
+  bottom: 0;
+  .cards {
+    @include card;
+    .message {
+      @include flex;
+      .profile-img {
+        @include resize;
+      }
+      .type-box {
+        width: 100%;
+        border: solid 0px;
+        border-radius: 25px;
+        padding: 15px;
+        background-color: #d4d4d4;
+        resize: none;
+        line-height: 16px;
+        &:focus {
+          outline: none;
+        }
+      }
+      .btn {
+        border-width: 0px;
+        background-color: white;
+        .submit-but{
+          cursor: default;
+          fill:#ced1d1;
+          font-size: 24px;
+          color:#fff;
+        }
+        .r-btn{
+          cursor: pointer;
+          fill:#1a73e8;
+        }
+      }
+
+     
+    }
+    .attachments {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px 0px 80px;
+      align-items: center;
+
+      .attachment-content {
+        display: flex;
+        align-items: center;
+        gap: 0px;
+        cursor: pointer;
+        .attach-but {
+          display: none;
+        }
+      }
+    }
+    .attachment-preview {
+      padding: 20px;
+      justify-content: center;
+      display: flex;
+      gap: 5px;
+    }
+    .webcam-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 10px;
+      
+      .btn1 {
+        @include btn;
+        @include btn-green
+      }
+      .btn2 {
+        @include btn;
+        @include btn-red;
+      }
+      .photo {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .audio-box{
+      display:flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap:15px;
+      padding-top:10px;
+      .record-flex{
+        display: flex;
+        justify-content: center;
+        gap:15px;
+        .pad-fa{
+          margin-left:4px;
+        }
+        .record-btn{
+          @include btn;
+          @include btn-green;
+        }
+        .stop-btn{
+          @include btn;
+          @include btn-red;
+        }
+      }
+      .cancel-record{
+        @include btn;
+        border:solid 1px skyblue;
+        background-color:skyblue;
+      }
+    }
+  }
+  .card-content {
+    @include card;
+    box-shadow: 0px 3px 11px #636e6e;
+    .popup-parent {
+      background: rgba(56, 55, 55, 0.5019607843);
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      left: 0;
+      z-index: 2;
+      box-shadow: 2px 4px 11px #b6b6b6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .pop-up {
+        border-radius: 8px;
+        width: 30%;
+        background: #ffffff;
+        height: 25%;
+        // z-index:100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .text-card{
+            padding:40px 20px;
+        }
+        .btn-delete{
+            @include btn;
+            @include btn-red;
+        }
+        .btn-cancel{
+            @include btn;
+            @include btn-green;
+        }
+      }
+    }
+    .about {
+      @include flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      .delete-left{
+        font-size:20px;
+      }
+      .about-person {
+        @include flex;
+      }
+    }
+    .profile-img {
+      @include resize;
+    }
+    .message-content {
+      letter-spacing: 0.3px;
+      line-height: 24px;
+      .body-large{
+        // max-width: 600px;
+        // overflow: hidden;
+        // text-overflow: clip;
+        white-space: pre-wrap;
+        font-family: 'Segoe UI', sans-serif;
+        font-size:16px;
+        line-height: 24px;
+      }
+    }
+    .img-resize {
+      width: 250px;
+    }
+  }
+}
+@media (max-width:1030px){
+  .feed-content{
+    .cards{
+      .attachments{
+        padding:10px 0px 10px 20px;
+      }
+    }
+  }
+}
+@media (max-width: 920px) {
+  .feed-content {
+    left: 250px;
+    padding: 30px 30px 10px 100px;
+    .cards {
+      width: 90%;
+      .message {
+        .type-box {
+          font-size: 10px;
+        }
+      }
+      .attachments{
+        padding: 10px 0px 10px 20px;
+        .attachment-content {
+          gap: 5px;
+          .icons {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .card-content {
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 450px) {
+    @mixin btn {
+        font-size:14px;
+    }
+  .feed-content {
+    margin: 0px;
+    padding: 20px;
+    left: 0;
+    .cards{
+        .attachments{
+            padding:10px 0px 0px 10px;
+        }
+    }
+    .card-content {
+        .popup-parent{
+            .pop-up{
+                width:50%;
+                .text-card{
+                    padding:20px 10px;
+                    font-size:14px;
+                }
+                .btn-control{
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+                    align-items: center;
+                }
+            }
+        }
+      .message-content {
+        line-height: 22px;
+        .body-large {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.content-header{
+    display:flex;
+    align-items: center;
+    gap:40px;
+    padding-left: 40px;
+    background-color: white;
+    width:100%; 
+    position:fixed; 
+    top:0px; 
+    margin:0px auto;
+    z-index:100;
+    box-shadow: 0px 2px 11px #736e6e;
+    .dashon{
+        font-size:20px;
+    }
+}
+    .sub-header{
+        display:flex;
+        align-items: center;
+        gap:10px;
+        .dash{
+            letter-spacing: 0.3px;
+            color:rgb(35, 31, 31)
+        }
+        
+        .faChevronRight{
+            height:15px;
+        }
+    }
+    .ham-menu{
+        display: none;
+    }
+
+@media (max-width:450px){
+    .content-header{
+        .ham-menu{
+            display: block;
+            margin-left:10px;
+        }
+    }
+    
+}
+@media(max-width:325px){
+    .content-header{
+        gap:20px;
+        padding-left:20px;
+        .sub-header{
+            gap:6px;
+        }
+    }
+}
